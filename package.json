@@ -1,0 +1,25 @@
+{
+  "name": "social-api",
+  "version": "1.0.0",
+  "description": "A social network api walkthrough video",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScottsC0de/social-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ScottsC0de/social-api/issues"
+  },
+  "homepage": "https://github.com/ScottsC0de/social-api#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
+  }
+}

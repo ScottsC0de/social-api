@@ -9,8 +9,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(require('./routes'));
 
-db.once('open', () => {
-    app.listen(PORT, () => {
-        console.log(`I'm listening`);
-    });
+app.listen(PORT, () => {
+    console.log(`I'm listening`);
 });

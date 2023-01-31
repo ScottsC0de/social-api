@@ -8,6 +8,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/studentsDB', {
   useUnifiedTopology: true,
 });
 
-mongoose.set("debug", true); // enable logging collection methods + arguments to the console/file (from docs)
+// mongoose.set("debug", true); // enable logging collection methods + arguments to the console/file (from docs)
 
 module.exports = mongoose.connection;
