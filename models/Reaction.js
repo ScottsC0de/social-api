@@ -19,15 +19,15 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: createdAtVal => dateFormat(createdAtVal)
+            get: val => dateFormat(val)
         }
     },
-    {
-        toJSON: {
-            getters: true
-        },
-        id: false
-    }
+    // {
+    //     toJSON: {
+    //         getters: true
+    //     },
+    //     id: false
+    // }
 );
 
 module.exports = reactionSchema;

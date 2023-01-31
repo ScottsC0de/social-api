@@ -10,20 +10,20 @@ const userSchema = new Schema(
         },
         email: {
             type: String,
-            unique: true,
             required: true,
-            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+            unique: true,
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email address'] // validate or required
         },
         thoughts: [{ type: Schema.Types.ObjectId, ref: 'Thought' }],
         friends: [{ type: Schema.Types.ObjectId, ref: 'User' }]
     },
-    {
-        toJSON: {
-            virtuals: true,
-            getters: true
-        },
-        id: false
-    }
+    // {
+    //     toJSON: {
+    //         virtuals: true,
+    //         getters: true
+    //     },
+    //     id: false
+    // }
 );
 
 userSchema.virtual('friendCount').get(function () {
