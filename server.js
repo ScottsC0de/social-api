@@ -1,5 +1,5 @@
 // const mongoose = require('mongoose');
-const db = require("./config/connection");
+const db = require('./config/connection');
 const express = require('express');
 
 const app = express();
