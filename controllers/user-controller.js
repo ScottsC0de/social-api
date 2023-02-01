@@ -7,7 +7,7 @@ const createUser = async (req, res) => {
         res.json(newUser);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...')
+        res.status(400).json(err);
     }
 };
 
@@ -17,7 +17,7 @@ const readAllUsers = async (req, res) => {
         res.json(allUsers);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -27,7 +27,7 @@ const readSingleUser = async (req, res) => {
         res.json(singleUser);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -37,7 +37,7 @@ const updateUser = async (req, res) => {
         res.json(updatedUser);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -47,7 +47,7 @@ const deleteUser = async (req, res) => {
         res.json(deletedUser);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -60,7 +60,7 @@ const addFriend = async (req, res) => {
         res.json(friend);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -73,7 +73,7 @@ const deleteFriend = async (req, res) => {
         res.json(friend);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 

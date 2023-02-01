@@ -9,7 +9,7 @@ const createThought = async (req, res) => {
         await User.findOneAndUpdate({ _id: req.params.id }, { $push: { thoughts: newThought._id } });
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -19,7 +19,7 @@ const readAllThoughts = async (req, res) => {
         res.json(allThoughts);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -29,7 +29,7 @@ const readSingleThought = async (req, res) => {
         res.json(singleThought);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -39,7 +39,7 @@ const updateThought = async (req, res) => {
         res.json(updatedThought);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...')
+        res.status(400).json(err);
     }
 };
 
@@ -49,7 +49,7 @@ const deleteThought = async (req, res) => {
         res.json(deletedThought);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 }
 
@@ -62,7 +62,7 @@ const createReaction = async (req, res) => {
         res.json(thought);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
@@ -75,7 +75,7 @@ const deleteReaction = async (req, res) => {
         res.json(thought);
     }
     catch (err) {
-        res.status(404).send('A 404 error has occured...');
+        res.status(400).json(err);
     }
 };
 
