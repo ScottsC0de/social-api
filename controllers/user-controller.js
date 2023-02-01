@@ -13,7 +13,7 @@ const createUser = async (req, res) => {
 
 const readAllUsers = async (req, res) => {
     try {
-        const allUsers = await User.find({}).exec(); // need exec to use await for .find()
+        const allUsers = await User.find({}).exec(); // need exec() to use await for .find()
         res.json(allUsers);
     }
     catch (err) {
@@ -23,7 +23,7 @@ const readAllUsers = async (req, res) => {
 
 const readSingleUser = async (req, res) => {
     try {
-        const singleUser = await User.findOne({ _id: req.params.id }).exec(); // need exec to use await for .find()
+        const singleUser = await User.findOne({ _id: req.params.id }).exec(); // need exec() to use await for .findOne()
         res.json(singleUser);
     }
     catch (err) {

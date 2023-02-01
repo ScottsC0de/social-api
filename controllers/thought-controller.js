@@ -15,7 +15,7 @@ const createThought = async (req, res) => {
 
 const readAllThoughts = async (req, res) => {
     try {
-        const allThoughts = await Thought.find({}).exec(); // need exec to use await for .find()
+        const allThoughts = await Thought.find({}).exec(); // need .exec() to use await for .find()
         res.json(allThoughts);
     }
     catch (err) {
@@ -25,7 +25,7 @@ const readAllThoughts = async (req, res) => {
 
 const readSingleThought = async (req, res) => {
     try {
-        const singleThought = await Thought.findOne({ _id: req.params.id }).exec(); // need exec to use await for .find()
+        const singleThought = await Thought.findOne({ _id: req.params.id }).exec(); // need .exec() to use await for .findOne()
         res.json(singleThought);
     }
     catch (err) {
