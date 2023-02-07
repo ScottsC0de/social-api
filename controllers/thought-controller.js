@@ -1,12 +1,11 @@
-const { Thought, Reaction } = require('../models')
+const { Thought, reactionSchema } = require('../models')
 
 // CRUD
 const createThought = async (req, res) => {
     try {
         const newThought = await Thought.create(req.body);
-        res.json(newThought);
-
         await User.findOneAndUpdate({ _id: req.params.id }, { $push: { thoughts: newThought._id } });
+        res.json(newThought);
     }
     catch (err) {
         res.status(400).json(err);
@@ -25,7 +24,7 @@ const readAllThoughts = async (req, res) => {
 
 const readSingleThought = async (req, res) => {
     try {
-        const singleThought = await Thought.findOne({ _id: req.params.id }).exec(); // need .exec() to use await for .findOne()
+        const singleThought = await Thought.findOne({ _id: req.params.thoughtId }).exec(); // need .exec() to use await for .findOne()
         res.json(singleThought);
     }
     catch (err) {
@@ -35,7 +34,7 @@ const readSingleThought = async (req, res) => {
 
 const updateThought = async (req, res) => {
     try {
-        const updatedThought = await Thought.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true });
+        const updatedThought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body }, { new: true });
         res.json(updatedThought);
     }
     catch (err) {
@@ -45,7 +44,7 @@ const updateThought = async (req, res) => {
 
 const deleteThought = async (req, res) => {
     try {
-        const deletedThought = await Thought.findOneAndDelete({ _id: req.params.id });
+        const deletedThought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
         res.json(deletedThought);
     }
     catch (err) {
@@ -55,9 +54,7 @@ const deleteThought = async (req, res) => {
 
 const createReaction = async (req, res) => {
     try {
-        const newReaction = await Reaction.create(req.body);
-        res.json(newReaction);
-
+        const newReaction = new reactionSchema(req.body);
         const thought = await Thought.findOneAndUpdate(req.params.thoughtId, { $push: { reactions: newReaction } }, { new: true });
         res.json(thought);
     }
@@ -68,9 +65,7 @@ const createReaction = async (req, res) => {
 
 const deleteReaction = async (req, res) => {
     try {
-        const deletedReaction = await Reaction.findByIdAndDelete(req.params.reactionId);
-        res.json(deletedReaction);
-
+        const deletedReaction = await reactionSchema.findByIdAndDelete(req.params.reactionId);
         const thought = await Thought.findOneAndUpdate(req.params.thoughtId, { $pull: { reactions: deletedReaction } }, { new: true });
         res.json(thought);
     }

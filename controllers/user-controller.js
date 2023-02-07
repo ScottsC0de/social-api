@@ -2,7 +2,6 @@ const { User, Thought } = require('../models')
 
 // CRUD
 const createUser = async (req, res) => {
-    console.log(req.body);
     try {
         const newUser = await User.create(req.body);
         res.json(newUser);
@@ -56,9 +55,6 @@ const addFriend = async (req, res) => {
     try {
         const user = await User.findByIdAndUpdate({ _id: req.params.id }, { $push: { friends: req.params.friendId } });
         res.json(user);
-
-        const friend = await User.findByIdAndUpdate({ _id: req.params.friendId }, { $push: { friends: req.params.friendId } });
-        res.json(friend);
     }
     catch (err) {
         res.status(400).json(err);
@@ -69,9 +65,6 @@ const deleteFriend = async (req, res) => {
     try {
         const user = await User.findByIdAndUpdate({ _id: req.params.id }, { $pull: { friends: req.params.friendId } });
         res.json(user);
-
-        const friend = await User.findByIdAndUpdate({ _id: req.params.friendId }, { $pull: { friends: req.params.friendId } });
-        res.json(friend);
     }
     catch (err) {
         res.status(400).json(err);
