@@ -2,6 +2,7 @@ const { User, Thought } = require('../models')
 
 // CRUD
 const createUser = async (req, res) => {
+    console.log(req.body);
     try {
         const newUser = await User.create(req.body);
         res.json(newUser);
