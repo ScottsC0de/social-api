@@ -53,8 +53,8 @@ const deleteUser = async (req, res) => {
 
 const addFriend = async (req, res) => {
     try {
-        const user = await User.findByIdAndUpdate({ _id: req.params.id }, { $push: { friends: req.params.friendId } });
-        res.json(user);
+        const newFriend = await User.findByIdAndUpdate({ _id: req.params.id }, { $push: { friends: req.params.friendId } });
+        res.json(newFriend);
     }
     catch (err) {
         res.status(400).json(err);
@@ -63,8 +63,8 @@ const addFriend = async (req, res) => {
 
 const deleteFriend = async (req, res) => {
     try {
-        const user = await User.findByIdAndUpdate({ _id: req.params.id }, { $pull: { friends: req.params.friendId } });
-        res.json(user);
+        const deletedFriend = await User.findByIdAndUpdate({ _id: req.params.id }, { $pull: { friends: req.params.friendId } });
+        res.json(deletedFriend);
     }
     catch (err) {
         res.status(400).json(err);
