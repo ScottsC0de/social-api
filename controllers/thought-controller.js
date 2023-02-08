@@ -4,7 +4,7 @@ const { User, Thought, reactionSchema } = require('../models')
 const createThought = async (req, res) => {
     try {
         const newThought = await Thought.create(req.body);
-        await User.findOneAndUpdate({ _id: req.params.id }, { $addToSet: { thoughts: newThought._id } }, { runValidators: true, new: true });
+        await User.findOneAndUpdate({ id: req.body.username }, { $push: { thoughts: newThought._id } }, { new: true });
         res.json(newThought);
     }
     catch (err) {
