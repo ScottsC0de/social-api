@@ -4,7 +4,7 @@ const { User, Thought, reactionSchema } = require('../models')
 const createThought = async (req, res) => {
     try {
         const newThought = await Thought.create(req.body);
-        await User.findOneAndUpdate({ id: req.body.username }, { $push: { thoughts: newThought._id } }, { new: true });
+        await User.findOneAndUpdate({ username: req.body.username }, { $push: { thoughts: newThought._id } });
         res.json(newThought);
     }
     catch (err) {
