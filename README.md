@@ -9,6 +9,7 @@ A working social media api created using VSCode, MongoDB, Mongoose ODM, & Expres
 - [New Tech Learned](#newtech-id)
 - [Installation](#installation-id)
 - [Usage](#usage-id)
+- [Screenshots](#screenshots-id)
 - [Links](#links-id)
 
 ## <a id="description-id"></a>Description
@@ -50,6 +51,20 @@ Delete data using delete()
 
 All specific routes available in code & in video demonstration
 ```
+<br>
+
+## <a id="screenshots-id"></a>Screenshots
+
+<br>
+
+![MVC structure/code for a social media API](img/social_api_pic_1.png)
+<br>
+
+![Initiating MongoDB in the terminal](img/social_api_pic_2.png)
+<br>
+
+![Testing routes in Insomnia](img/social_api_pic_3.png)
+<br>
 
 ## <a id="links-id"></a>Links
 The author is a developer with a GitHub account: https://github.com/ScottsC0de & email: **Scott5902@gmail.com**</br>
