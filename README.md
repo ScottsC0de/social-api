@@ -55,8 +55,6 @@ All specific routes available in code & in video demonstration
 
 ## <a id="screenshots-id"></a>Screenshots
 
-<br>
-
 ![MVC structure/code for a social media API](img/social_api_pic_1.png)
 <br>
 
